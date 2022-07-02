@@ -1,7 +1,5 @@
 
-
 computerSelection = Math.floor(Math.random()*3);
-console.log(computerSelection);
 
 console.log("0 for paper");
 console.log("1 for scissor");
@@ -39,13 +37,11 @@ function playRound(cselect,pselect){
             }
             else (cselect==1)
             console.log("You Won!! Rock beats Scissor");
-        
-
         }
 
     }
 
     }
 
-    
 playRound(computerSelection,playerSelection);
+console.log("computer's choice was "+computerSelection);
