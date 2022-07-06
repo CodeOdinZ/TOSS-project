@@ -1,47 +1,84 @@
 
-computerSelection = Math.floor(Math.random()*3);
 
-console.log("0 for paper");
-console.log("1 for scissor");
-console.log("2 for rock");
-const playerSelection = window.prompt('Type the number for your choice!!');
+let computerSelection;
+let comwin=0;
+let playwin=0;
+let playerSelection;
+
+game();
+
+function game(){
+    
+    console.log("0 for paper");
+    console.log("1 for scissor");
+    console.log("2 for rock");
+    
+    
+    for(let i=0; i<5; i++){
+        playRound();
+    }
+
+    if(comwin>playwin){
+        console.log("Finally Computer WINS!!!");
+    }
+    else if(comwin<playwin){
+        console.log("Finally You WON!!!");
+    }
+    else{
+        console.log("Whole Match Tied");
+    }
+}
  
-function playRound(cselect,pselect){
+function playRound(){
     
-    
-    if(cselect==0 && pselect==2){
-        console.log("You Lose!! Paper beats Rock");
-    }
-    else if(cselect==2 && pselect==0){
-        console.log("You won!! Paper beats Rock");
-    }
+    computerSelection = Math.floor(Math.random()*3);
+    playerSelection = window.prompt('Type the number for your choice!!');
+    console.log("computer's choice was "+computerSelection);
+    console.log("your choice was "+playerSelection);
 
-    else {
-    
-    
-        if(cselect>pselect){
-        
-            if(pselect==0){
-            console.log("You Lose!! Scissor beats Paper");
-            }
-            else (pselect==1)
-            console.log("You Lose!! Rock beats Scissor");
-        
-        
-            }
-
-        else {
-        
-            if(cselect==0){
-            console.log("You Won!! Scissor beats Paper");
-            }
-            else (cselect==1)
-            console.log("You Won!! Rock beats Scissor");
+    if(computerSelection==playerSelection){
+            console.log("Match Tied in this Round");
         }
 
+    else if(computerSelection==0 && playerSelection==1){
+        console.log("You Won!! scissor beats paper");
+        playwin=playwin+1;
     }
 
+    else if(computerSelection==0 && playerSelection==2){
+        console.log("You Lose!! Paper beats Rock");
+        comwin=comwin+1;}
+    
+
+    else if(computerSelection==1 && playerSelection==0){
+        console.log("You Lose!! scissor beats paper");
+        comwin=comwin+1;
     }
 
-playRound(computerSelection,playerSelection);
-console.log("computer's choice was "+computerSelection);
+    else if(computerSelection==1 && playerSelection==2){
+        console.log("You Won!! Rock beats Scissor");
+        playwin=playwin+1;
+    }
+
+    else if(computerSelection==2 && playerSelection==0){
+        console.log("You Won!! Paper beats Rock");
+        playwin=playwin+1;
+    }
+
+    else if(computerSelection==2 && playerSelection==1){
+        console.log("You Lose!! Rock beats Scissor");
+        comwin=comwin+1;
+    }
+
+    else{
+        
+    }
+    
+    
+    
+}
+
+
+
+
+
